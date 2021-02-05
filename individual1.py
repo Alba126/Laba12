@@ -25,15 +25,6 @@ class Payment:
         self.percent = float(percent)
         self.days_worked = int(days_worked)
         self.working_days = int(working_days)
-        # self.amount = 0
-        # self.held_amount = 0
-        #self.hand_amount = 0
-        #self.exp = 0
-
-        #self.accrued_amount()
-        #self.withheld_amount()
-        #self.handed_amount()
-        #self.experience()
 
     def read(self):
         full_name = input('Введите свое полное имя: ')
@@ -50,11 +41,6 @@ class Payment:
         self.days_worked = int(days_worked)
         self.working_days = int(working_days)
 
-        # self.accrued_amount()
-        # self.withheld_amount()
-        # self.handed_amount()
-        # self.experience()
-
     def display(self):
         print(f"{self.full_name}")
         print(f"{self.salary}")
@@ -62,31 +48,24 @@ class Payment:
         print(f"{self.percent}")
         print(f"{self.days_worked}")
         print(f"{self.working_days}")
-        #print(f"Withholding amount: {round(self.held_amount)}")
-        #print(f"Сalculated amount handed out: {round(self.hand_amount)}")
-        #print(f"Experience: {self.exp} year(s)")
 
     def accrued_amount(self):
         a = self.salary / self.working_days
         b = a * self.days_worked
         percent = self.percent / 100 + 1
-        # self.amount = b * percent
         return b * percent
 
     def withheld_amount(self):
         b = (self.salary / self.working_days) * self.days_worked
-        #self.held_amount = b * (0.13 + 0.01)
         return b * (0.13 + 0.01)
 
     def handed_amount(self):
         a = self.salary / self.working_days
         b = a * self.days_worked
         percent = self.percent / 100 + 1
-        #self.hand_amount = self.amount - self.held_amount
         return b * percent - (self.salary / self.working_days) * self.days_worked
 
     def experience(self):
-        #self.exp = 2020 - self.year
         return 2020 - self.year
 
 
